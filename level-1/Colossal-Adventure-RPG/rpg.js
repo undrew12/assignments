@@ -3,7 +3,7 @@ const readline = require("readline-sync")
 let isAlive = true;
 let herohp = "100"
 let heroatk = "50"
-
+//aaaa
 
 
 
