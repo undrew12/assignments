@@ -1,9 +1,9 @@
 
 const readline = require("readline-sync")
 let isAlive = true;
-let herohp = "100"
-let heroatk = "50"
-//aaaa
+let heroplayerhp = "100"
+let  heroplayeratk = "50"
+
 
 
 
@@ -19,8 +19,14 @@ class Adventurehero{
         this.inventory = ['Glave']
     }
 }
+// const heroplayerarr = []
+// const player = new Adventurehero()
 
-const player = new Adventurehero()
+// const heroplayerhp = []
+// const playerhp = new Adventurehero(100)
+
+// const heroplayeratk = [50]
+// const playeratk = new Adventurehero()
 
 let hero = Adventurehero.name
 // let herohp = Adventurehero.hp
@@ -34,19 +40,24 @@ class Evilenemy {
             }
         }
 const enemyArr = []
-const Knight = new Evilenemy("Knight", 50, 30)
-const Wizard = new Evilenemy("Wizard", 75, 30)
-const Rouge = new Evilenemy("Rouge", 50, 30)
+const Knight = new Evilenemy("Knight")
+const Wizard = new Evilenemy("Wizard")
+const Rouge = new Evilenemy("Rouge")
 
 const enemyhp = []
-const Knighthp = new Evilenemy(50)
+const Knighthp = new Evilenemy(100)
+const Wizardhp = new Evilenemy(100)
+const Rougehp = new Evilenemy(100)
 
 const enemyattack = []
-const Knightatk = Evilenemy
+const Knightatk = new Evilenemy (50)
+const Wizardatk = new Evilenemy (50)
+const Rougeatk = new Evilenemy (50)
 
 
 enemyArr.push(Knight.name, Wizard.name, Rouge.name)
-enemyattack.push(Knightatk.atk)
+// enemyhp.push(Knight.atk, Wizard.name,)
+// enemyattack.push(enemyattack.atk)
 // function evilbad() {
 //     var EvilName = ["Knight", "Wizard", "Rouge"];
 //     var randomEvilName = randomNum(0, 3);
@@ -137,14 +148,14 @@ while(isAlive){
              
                 
                 
-                readline.keyIn (`attack the ` + Evilenemy + ` and dealt ` + heroatk + ` points of damage. `)
+                readline.keyIn (`attack the ` + Evilenemy + ` and dealt ` + heroplayeratk + ` points of damage. `)
     
                             if(enemyhp < 0){
                                 enemyhp = 0
                             }
                         
                              
-                            if(herohp > 0) {
+                            if(heroplayerhp > 0) {
                                 if(enemyhp > 0) {
                                     if (attackCounter > 1) {
                                         //console.clear()
@@ -154,35 +165,38 @@ while(isAlive){
     
                             
                           
-                                     readline.keyIn(`You dealt` + herohp + `to the `+ Evil +`and it dealt`+ enemyattack + `.Your current HP is ` + herohp +  `. (f) Attack again or (r)Run? `,{limit:["f","r"]})
+                                     readline.keyIn(`You dealt ` + heroplayeratk + ` to the `+ Evil + `.Your current HP is ` + heroplayerhp +  `. (f) Attack again or (r)Run? `,{limit:["f","r"]})
                                     attackCounter ++
                                 }else { 
-                                     readline.keyIn(`You dealt` + heroatk + `to the `+ Evilenemy +`and it dealt`+ enemyattack + `.Your current HP is ` + herohp + `. (f) Attack again or (r)Run? `,{limit:["f", "r"]})
+                                     readline.keyIn(`You dealt ` + heroplayeratk + ` to the `+ Evilenemy + `.Your current HP is ` + heroplayerhp + `. (f) Attack again or (r)Run? `,{limit:["f", "r"]})
                                     console.log()
                         } if(enemyhp <= 0 ){
-                            readline.keyInPause(`You ` + heroatk + Evilenemy + enemyattack + `Your current HP is ` + Evilenemy +  `. You have defeated the ` + Evilenemy)
+                            readline.keyInPause(`You did ` + heroplayeratk + ` to ` + Evilenemy + enemyattack + `Your current HP is ` + heroplayerhp +  `. You have defeated the ` + Evilenemy)
                             
                         }    
 
     }else if (engage === 'r') {
         
         runAway(engage)
- function runAway(engage){
+        
+        function runAway(engage){
         if(engage === 'r'){
     
         let chance = Math.floor((Math.random()*2)+1)
-        while(engage === 'r') {
-            if (chance !== 1) {
-                aherohp = herohp - enemyattack
-                engage = 'f'
-                engage = readline.keyIn(`You tried to run but the ` + EvilName +  ` attacks dealing ` + enemyattack + ' hit points.'+ `Your current HP is ` + adventurehero.hp + ` and the ` + Evil + `'s current HP is ` + Evilhp + `. (f) Attack or (r)Run? `,{limit:["f","r"]})
+        
+            if (chance !== 4) {
+                heroplayerhp = heroplayerhp - 50
+                
+                
                 if (engage === 'f') {
                     attack()
                 }
             }else {
+                
                 readline.keyInPause(`You managed to get away.`)
                 engage = ''
             }
+       
     }
 
     function attack(engage){
@@ -190,34 +204,35 @@ while(isAlive){
          
             
             
-            readline.keyIn (`attack the ` + Evilenemy + ` and dealt ` + heroatk + ` points of damage. `)
-
+            readline.keyIn (`attack the ` + Evilenemy + ` and dealt ` + heroplayeratk + ` points of damage. `)
+            
                         if(enemyhp < 0){
                             enemyhp = 0
                         }
                     
                          
-                        if(herohp > 0) {
+                        if(heroplayerhp > 0) {
                             if(enemyhp > 0) {
                                 if (attackCounter > 1) {
                                     //console.clear()
                                     attackCounter = 0
                                 }
                         readline.keyIn( ` (f) Attack again or (r)Run? `,{limit:["f","r"]})
-
+                                if(engage === 'f'){
                         
                       
-                                 readline.keyIn(`You dealt` + herohp + `to the `+ Evil +`and it dealt`+ enemyattack + `.Your current HP is ` + herohp +  `. (f) Attack again or (r)Run? `,{limit:["f","r"]})
+                                 readline.keyIn(`You dealt` + heroplayerhp + `to the `+ Evil +`and it dealt`+ enemyattack + `.Your current HP is ` + heroplayerhp +  `. (f) Attack again or (r)Run? `,{limit:["f","r"]})
                                 attackCounter ++
                             }else { 
-                                 readline.keyIn(`You dealt` + heroatk + `to the `+ Evilenemy +`and it dealt`+ enemyattack + `.Your current HP is ` + herohp + `. (f) Attack again or (r)Run? `,{limit:["f", "r"]})
+                                 readline.keyIn(`You dealt` + heroplayeratk + `to the `+ Evilenemy +`and it dealt`+ enemyattack + `.Your current HP is ` + heroplayerhp + `. (f) Attack again or (r)Run? `,{limit:["f", "r"]})
                                 console.log()
                     } if(enemyhp <= 0 ){
-                        readline.keyInPause(`You ` + heroatk + Evilenemy + enemyattack + `Your current HP is ` + Evilenemy +  `. You have defeated the ` + Evilenemy)
+                        readline.keyInPause(`You ` + heroplayeratk + Evilenemy + enemyattack + `Your current HP is ` + Evilenemy +  `. You have defeated the ` + Evilenemy)
                         
 
                 
-}
+} 
+
 const index = readline.keyInSelect('What would you like to do next?');
    
                     // }
