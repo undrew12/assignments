@@ -1,24 +1,24 @@
-const arr = [1,2,3,4,5]
+// const arr = [1,2,3,4,5]
 
 
-let doubleArr = arr.map(num => {
-    return num * 2
-})
+// let doubleArr = arr.map(num => {
+//     return num * 2
+// })
 
-console.log(doubleArr)
+// console.log(doubleArr)
 
-let stringArr = arr.map(num => {
-    return `${num}`
-})
+// let stringArr = arr.map(num => {
+//     return `${num}`
+// })
 
-console.log(stringArr)
+// console.log(stringArr)
 
-const people = ["jOhn", "jAcob", "jIngle", "heImer", "schmIdt"]
+// const people = ["jOhn", "jAcob", "jIngle", "heImer", "schmIdt"]
 
 
-let peopleFirstLetCap = people.map(name => {
-    return  name.charAt(1).toUpperCase() + name.substring(2,).toLowerCase()
-})
+// let peopleFirstLetCap = people.map(name => {
+//     return  name.charAt(1).toUpperCase() + name.substring(2,).toLowerCase()
+// })
 
 // name.charAt(0)
 
@@ -46,17 +46,18 @@ let people1 =[
         age: 100
     }]
     
-let peopleString = people1.map(a => `${a.name}`)
+let peopleString = people1.map(a => `${a.name}`) //names
 
-console.log(peopleString)
+console.log(peopleString) //logging names
 
 let oldEnoughForMovie = people1.map(a => {
     if (a.age >= 18){
-        return `${a.name} is old enough to see the matrix!`
+        return `${a.name} is old enough to see the matrix!` //can see movie
     } if (a.age < 18) {
-        return `${a.name} is not old enough to see the Matrix!`
-    }
-})
+        return `${a.name} is not old enough to see the Matrix!` //is not old enough to see movie
+    } //pulling age from people1
+
+})// if old enough
 
 console.log(oldEnoughForMovie)
 
