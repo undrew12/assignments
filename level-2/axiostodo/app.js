@@ -8,7 +8,7 @@ function getData(){
 }
 
 getData()
-//Actually appending the API information to the DOM and adding buttons that delete and linethrough
+
 function listData(arr){
     clearList()
     for(let i = 0; i < arr.length; i++){
